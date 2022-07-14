@@ -7,13 +7,13 @@ public class Main {
         Register sampleRegister = new Register();
 
         // Abfrage im leeren register:
-        sampleRegister.getFriendCount();
+        System.out.printf("%nYou have %d friends in your register.%n", sampleRegister.getFriendCount());
 
         // Hinzufügen von Freunden:
         sampleRegister.addFriend("Max", "Muster", "1990-12-24");
         sampleRegister.addFriend("Melinda", "Schneider", "1994-02-16");
 
-        sampleRegister.getFriendCount();
+        System.out.printf("%nYou have %d friends in your register.%n", sampleRegister.getFriendCount());
 
         // Suchen nach Name:
         sampleRegister.searchFriendsByName("Muster");
@@ -46,6 +46,15 @@ public class Main {
         // Adresse löschen:
         sampleRegister.deletAddressFromFriend(1,1001);
         sampleRegister.getAddressesForFriend(1);
+
+        // Erneutes Hinzufügen von Freunden und Adressen:
+        sampleRegister.addFriend("Melinda", "Schneider", "1994-02-16");
+        sampleRegister.addFriend("Otto", "Müller", "1992-08-19");
+        sampleRegister.addAddressToFriend(2, "Schulstraße 12", "Wangerland", "26434");
+        sampleRegister.addAddressToFriend(3, "Schulstraße 12", "Wangerland", "26434");
+
+        // Ausgeben der Adressliste:
+        sampleRegister.printAddressList();
     }
 }
 
