@@ -37,7 +37,7 @@ public class Register{
 
 			System.out.printf("%nEntry with id %d edited to %s%n", friendToEdit.getId(), friendToEdit);
 		}
-		if(friendOptional.isEmpty()){System.out.printf("%nNo entry found for id %d%n", id);}
+		if(friendOptional.isEmpty()){System.out.printf("%nNo entry found for id %d %n", id);}
 	}
 
 	public void searchFriendsByName(String name) {
@@ -92,7 +92,6 @@ public class Register{
 	}
 
 	public void getAddressesForFriend(Integer friendId){
-		//TODO implement me
 		Optional<Friend> friendOptional = this.searchFriendById(friendId);
 		if(friendOptional.isEmpty()){
 			System.out.printf("%nNo entry fond for friend with id %d %n", friendId);

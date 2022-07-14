@@ -67,9 +67,9 @@ public class Friend{
 	}
 	
 	public void getAddresses() {
+		System.out.printf("\nAddresses saved for %s:\n", this.toString());
 		for (Address address :
 				addresses) {
-			System.out.printf("\nAddresses saved for %s:\n", this.toString());
 			System.out.println(address.toString());
 		}
 	}

@@ -1,28 +1,51 @@
+import java.util.Optional;
+
 public class Main {
 
     public static void main (String[] args){
 
         Register sampleRegister = new Register();
 
+        // Abfrage im leeren register:
         sampleRegister.getFriendCount();
 
-        sampleRegister.addFriend("Jonas", "Kuhlo", "1990-12-24");
-        sampleRegister.addFriend("Yulia", "Kuhlo", "1994-02-16");
+        // Hinzufügen von Freunden:
+        sampleRegister.addFriend("Max", "Muster", "1990-12-24");
+        sampleRegister.addFriend("Melinda", "Schneider", "1994-02-16");
 
         sampleRegister.getFriendCount();
 
-        sampleRegister.searchFriendsByName("Jonas");
-        sampleRegister.searchFriendsByName("Kuhlo");
+        // Suchen nach Name:
+        sampleRegister.searchFriendsByName("Muster");
 
-        System.out.println(sampleRegister.searchFriendById(2));
+        // Ändern des Namen und Überprüfung des Ergebnisses (beide werden gefunden):
+        sampleRegister.editFriend(2, "Melinda", "Muster", "1994-02-16");
+        sampleRegister.searchFriendsByName("Muster");
+
+        // Fehlerhafter versuch Daten zu ändern:
+        sampleRegister.editFriend(10, "Melinda", "Muster", "1994-02-16");
+
+        // Suche über ID:
+        Optional<Friend> friendOptional = sampleRegister.searchFriendById(2);
+        System.out.print("\n" + friendOptional + "\n");
+        if(friendOptional.isPresent()){
+            System.out.print("Found the coresponding friend.\n");
+            System.out.println(friendOptional.get());
+        }
 
 
-        sampleRegister.editFriend(2, "Yulia", "Mkhayan", "1994-02-16");
-        sampleRegister.editFriend(10, "Yulia", "Mkhayan", "1994-02-16");
+        // Löschen von Freunden:
+        sampleRegister.deleteFried(2);
+        sampleRegister.searchFriendsByName("Melinda");
 
-        sampleRegister.addAddressToFriend(1, "Ringelbachstr. 233", "Reutlingen", "72762");
+        //Adresse anlegen:
+        sampleRegister.addAddressToFriend(1, "Hauptstraße 3", "Reutlingen", "72770");
+        sampleRegister.addAddressToFriend(1, "Schulstraße 12", "Wangerland", "26434");
         sampleRegister.getAddressesForFriend(1);
 
+        // Adresse löschen:
+        sampleRegister.deletAddressFromFriend(1,1001);
+        sampleRegister.getAddressesForFriend(1);
     }
 }
 
