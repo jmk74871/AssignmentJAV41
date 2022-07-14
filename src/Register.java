@@ -58,9 +58,8 @@ public class Register{
 		return Optional.empty();
 	}
 
-	public int getFriendCount(){
-		// System.out.printf("%nYou have %d friends in your register.%n", this.friends.size());
-		return this.friends.size();
+	public void getFriendCount(){
+		System.out.printf("%nYou have %d friends in your register.%n", this.friends.size());
 	}
 
 	public void addAddressToFriend(Integer friendId, String street, String city, String postalcode){

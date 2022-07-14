@@ -7,13 +7,13 @@ public class Main {
         Register sampleRegister = new Register();
 
         // Abfrage im leeren register:
-        System.out.printf("%nYou have %d friends in your register.%n", sampleRegister.getFriendCount());
+        sampleRegister.getFriendCount();
 
         // Hinzufügen von Freunden:
         sampleRegister.addFriend("Max", "Muster", "1990-12-24");
         sampleRegister.addFriend("Melinda", "Schneider", "1994-02-16");
 
-        System.out.printf("%nYou have %d friends in your register.%n", sampleRegister.getFriendCount());
+       sampleRegister.getFriendCount();
 
         // Suchen nach Name:
         sampleRegister.searchFriendsByName("Muster");
